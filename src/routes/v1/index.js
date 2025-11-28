@@ -18,11 +18,11 @@ v1Router.get("/", (req, res) => {
 // /api/v1/auth
 v1Router.use("/auth", authRouter);
 
-// PRIVATE ROUTES (require a user to be logged in in order to access them)
-v1Router.use(requiresAuthentication); // This middleware protects ALL routes after it
-
 // /api/v1/users
 v1Router.use("/users", usersRouter);
+
+// PRIVATE ROUTES (require a user to be logged in in order to access them)
+v1Router.use(requiresAuthentication); // This middleware protects ALL routes after it
 
 // /api/v1/protected
 v1Router.get("/protected", (req, res) => {
